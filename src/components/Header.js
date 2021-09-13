@@ -1,8 +1,7 @@
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 
 export default function Header() {
-    const [userName, stateBoolen] = useState("로그인이 필요합니다.");
 
     return <div className="header">
         <h1>
