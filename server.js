@@ -8,7 +8,10 @@ const parsing = require("./test");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-console.log(parsing);
+parsing("한울아잘하자")
+    .then(res => {
+        console.log(res)
+    })
 
 const data = fs.readFileSync("./src/config/db.json");
 const conf = JSON.parse(data);

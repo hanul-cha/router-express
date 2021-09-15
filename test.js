@@ -31,6 +31,9 @@ const parsing = async (keyword) => {
     return info
 }
 
-console.log(parsing("한울아잘하자"));
+/* parsing("한울아잘하자")
+    .then(res => {
+        console.log(res)
+    }) */
 
 module.exports = parsing
