@@ -6,11 +6,11 @@ export default function register() {
             <div className="login-page">
                 <div className="form">
                 <form className="login-form">
-                    <input id="id" type="text" placeholder="아이디"/>
-                    <input id="name" type="text" placeholder="이름"/>
-                    <input id="psword" type="password" placeholder="비밀번호"/>
-                    <input id="confirm-psword" type="password" placeholder="비밀번호 확인"/>
-                    <p id="button">SIGN UP</p>
+                    <input id="id" type="text" placeholder="아이디" required/>
+                    <input id="name" type="text" placeholder="이름" required/>
+                    <input id="psword" type="password" placeholder="비밀번호" required/>
+                    <input id="confirm-psword" type="password" placeholder="비밀번호 확인" required/>
+                    <button id="button">SIGN UP</button>
                     <p className="message">Already registered? <Link to="/user/login">login</Link></p>
                 </form>
                 </div>
