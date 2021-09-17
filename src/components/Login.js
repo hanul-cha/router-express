@@ -8,9 +8,22 @@ export default function Login() {
         password:""
     });
 
+    function onChangeId(e) {
+        setText({
+            ...userInfo,
+            id:e.target.value
+        })
+    }
+    function onChangePs(e) {
+        setText({
+            ...userInfo,
+            password:e.target.value
+        })
+    }
+
     async function onSubmit(e) {
         e.preventDefault();
-        setText(userInfo.id = e.target[0].value, userInfo.password = String(e.target[1].value))
+        
         
         console.log(userInfo.id)
         console.log(userInfo.password)
@@ -18,7 +31,9 @@ export default function Login() {
         const user = new User(userInfo);
         const response = await user.login(); 
 
+        
         console.log(response.success);
+        console.log(response.msg);
 
     }
 
@@ -27,8 +42,8 @@ export default function Login() {
             <div className="login-page">
                 <div className="form">
                 <form className="login-form" onSubmit={onSubmit}>
-                    <input id="id" type="text" placeholder="아이디" required defaultValue={userInfo.id}/>
-                    <input id="psword" type="password" placeholder="비밀번호" required defaultValue={userInfo.password}/>
+                    <input id="id" type="text" placeholder="아이디" required value={userInfo.id || ""} onChange={onChangeId}/>
+                    <input id="psword" type="password" placeholder="비밀번호" required value={userInfo.password || ""} onChange={onChangePs}/>
                     <button id="button">login</button>
                     <p className="message">Not registered? <Link to="/user/register">Create an account</Link></p>
                 </form>

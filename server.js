@@ -2,7 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const parsing = require("./test");
+const dotenv = require("dotenv");
 
+dotenv.config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
