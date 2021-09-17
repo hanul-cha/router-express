@@ -1,4 +1,4 @@
-const UserStorage = require("./UserStorage");
+
 
 class User {
   constructor(body) {
@@ -7,6 +7,7 @@ class User {
 
   async login() {
     const client = this.body;
+
     try {
       const user = {
           id: "ckgksdnf",

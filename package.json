@@ -21,7 +21,7 @@
   },
   "scripts": {
     "node": "nodemon ./bin/www.js",
-    "react-project": "react-scripts start",
+    "react-project": "set PORT=3000 && react-scripts start",
     "start": "concurrently --kill-others-on-fail \"npm run node\" \"npm run react-project\" ",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -44,5 +44,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }

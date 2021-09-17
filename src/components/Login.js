@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import useFetch from "../hooks/useFetch";
+
+
 const User = require("../models/User");
 
 export default function Login() {
+    const dbList = useFetch("http://localhost:5000/api/db");
+    console.log(dbList);
+
+
+
     const [userInfo, setText] = useState({
         id:"",
         password:""

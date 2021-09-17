@@ -22,6 +22,7 @@ parsing("한울아잘하자").then(ress => {
 
 
 app.get("/api/db", (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     db.query(
         "SELECT * FROM users",
         (err, rows, fields) => {
