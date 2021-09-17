@@ -34,7 +34,7 @@ export default function Login() {
         
         console.log(response.success);
         console.log(response.msg);
-
+        /* if문으로 url헨들링 해줘야함 */
     }
 
     return (

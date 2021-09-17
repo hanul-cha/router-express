@@ -3,8 +3,10 @@ const bodyParser = require("body-parser");
 const app = express();
 const parsing = require("./test");
 const dotenv = require("dotenv");
+const db = require("./src/config/db");
+const fs = require("fs");
 
-dotenv.config();
+dotenv.config({ path: ".env"});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,6 +18,17 @@ parsing("한울아잘하자").then(ress => {
             res.send(ress);
         })
     });
+
+
+
+app.get("/api/db", (req, res) => {
+    db.query(
+        "SELECT * FROM users",
+        (err, rows, fields) => {
+            res.send(rows);
+        }
+    )
+})
 
 
 
