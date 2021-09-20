@@ -1,4 +1,4 @@
-
+const UserStorage = require("./UserStorage");
 
 class User {
   constructor(body) {
@@ -8,11 +8,15 @@ class User {
   async login() {
     const client = this.body;
 
+    
+
     try {
       const user = {
           id: "ckgksdnf",
           psword: "1234"
       };
+      const users = await UserStorage.getUserInfo(client.id);
+      console.log(users);
 
       if (user) {
         if (user.id === client.id && user.psword === client.password) {
