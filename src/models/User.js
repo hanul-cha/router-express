@@ -16,7 +16,7 @@ class User {
 
       if (user) {
         if (user.id === client.id && user.psword === client.password) {
-          return { success: true };
+          return { success: true, name:user.name };
         }
         return { success: false, msg: "비밀번호가 틀렸습니다." };
       }

@@ -21,6 +21,9 @@ function App() {
         <Route path="/user/register" >
           <Register />
         </Route>
+        <Route path="/user/:userName" >
+          <Mane />
+        </Route>
         </Switch>
       </div>
     </BrowserRouter>

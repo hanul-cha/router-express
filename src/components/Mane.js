@@ -7,7 +7,7 @@ export default function Mane() {
 
     return <div className="helloUser">
         <h2>
-            {userName}
+            hi
         </h2>
         
     </div>

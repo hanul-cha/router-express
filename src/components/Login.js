@@ -14,6 +14,8 @@ export default function Login() {
         password:""
     });
 
+    const history = useHistory();
+
     const dbList = useFetch(`http://localhost:5000/api/db`);
 
     function onChangeId(e) {
@@ -39,7 +41,10 @@ export default function Login() {
         const response = await user.login(); 
 
         if(response.success) {
-            alert("로그인 되었습니다.")
+            const userName = response.name;
+            alert("로그인 되었습니다.");
+            
+            history.push(`/user/${userName}`);
         } else {
             alert(response.msg);
         }
