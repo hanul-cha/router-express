@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
 
@@ -14,7 +14,7 @@ export default function Login() {
         password:""
     });
 
-    const dbList = useFetch(`http://localhost:5000/api/db?id=${userInfo.id}`);
+    const dbList = useFetch(`http://localhost:5000/api/db`);
 
     function onChangeId(e) {
         setText({
@@ -32,18 +32,17 @@ export default function Login() {
     async function onSubmit(e) {
         e.preventDefault();
         
-        
         console.log(userInfo.id)
         console.log(userInfo.password)
-        console.log(dbList)
 
-        const user = new User(userInfo);
+        const user = new User(userInfo, dbList);
         const response = await user.login(); 
 
-        
-        console.log(response.success);
-        console.log(response.msg);
-        /* if문으로 url헨들링 해줘야함 */
+        if(response.success) {
+            alert("로그인 되었습니다.")
+        } else {
+            alert(response.msg);
+        }
     }
 
     return (
