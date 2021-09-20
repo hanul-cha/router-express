@@ -1,4 +1,4 @@
-const db = require("../config/db");
+/* const db = require("../config/db");
 
 class UserStorage {
     getUserInfo(id) {
@@ -12,4 +12,4 @@ class UserStorage {
     }
 }
 
-module.exports = UserStorage;
+module.exports = UserStorage; */

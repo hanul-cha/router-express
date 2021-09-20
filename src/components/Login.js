@@ -3,18 +3,18 @@ import { useState } from "react";
 import useFetch from "../hooks/useFetch";
 
 
+
+
 const User = require("../models/User");
 
 export default function Login() {
-    const dbList = useFetch("http://localhost:5000/api/db");
-    console.log(dbList);
-
-
-
+    
     const [userInfo, setText] = useState({
         id:"",
         password:""
     });
+
+    const dbList = useFetch(`http://localhost:5000/api/db?id=${userInfo.id}`);
 
     function onChangeId(e) {
         setText({
@@ -35,6 +35,7 @@ export default function Login() {
         
         console.log(userInfo.id)
         console.log(userInfo.password)
+        console.log(dbList)
 
         const user = new User(userInfo);
         const response = await user.login(); 

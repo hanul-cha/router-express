@@ -4,7 +4,6 @@ const app = express();
 const parsing = require("./test");
 const dotenv = require("dotenv");
 const db = require("./src/config/db");
-const fs = require("fs");
 
 dotenv.config({ path: ".env"});
 
