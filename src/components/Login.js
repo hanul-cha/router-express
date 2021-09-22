@@ -43,7 +43,6 @@ export default function Login() {
         if(response.success) {
             const userName = response.name;
             alert("로그인 되었습니다.");
-            
             history.push(`/user/${userName}`);
         } else {
             alert(response.msg);

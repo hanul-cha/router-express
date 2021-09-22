@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { useParams } from "react-router";
 
 export default function Mane() {
-    const [userName, stateBoolen] = useState("로그인이 필요합니다.");
+    const { userName } = useParams(); 
 
 
 
     return <div className="helloUser">
         <h2>
-            hi
+            { userName }님 안녕하세요
         </h2>
         
     </div>
