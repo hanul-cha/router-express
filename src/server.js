@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const parsing = require("./test");
 const dotenv = require("dotenv");
-const db = require("./src/config/db");
+const db = require("./config/db");
 
 dotenv.config({ path: ".env"});
 
@@ -34,4 +34,5 @@ app.get("/api/db", (req, res) => {
 
 
 module.exports = app;
+
 
