@@ -14,22 +14,22 @@ export default function Mane() {
 
     function onSubmit(e){
         e.preventDefault();
-        console.log(characterName);
+        console.log(JSON.stringify(characterName));
 
-        fetch("/api/users/info", {
+        fetch("http://localhost:5000/api/users/info", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(userName),
+            body: JSON.stringify(characterName),
           })
-            .then((res) => res.json())
+           /*  .then((res) => res.json())
             .then((res) => {
               console.log(res);
             })
             .catch((err) => {
-              console.error("에러 발생");
-            });
+              console.error("기분 나쁜 에러 발생");
+            }); */
     }
 
     return <div className="helloUser">

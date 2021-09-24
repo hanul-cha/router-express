@@ -13,18 +13,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 /* 크로울링 api */ 
-async function useParsing(req, res) {
-    const user = req.body;
-    return user
 
-    /* parsing().then(ress => {
-        app.get("/api/users/info", (req, res) => {
-            res.send(ress);
-        })
-    }); */
-}
 
-app.post("/api/users/info", useParsing)
+parsing().then(ress => {
+    app.get("/api/users/info", (req, res) => {
+        res.send(ress);
+    })
+});
+
+
 
 
 
@@ -40,7 +37,6 @@ app.get("/api/db", (req, res) => {
 })
 
 
-module.exports = useParsing;
 module.exports = app;
 
 
