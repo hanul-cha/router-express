@@ -17,19 +17,24 @@ export default function Mane() {
         console.log(JSON.stringify(characterName));
 
         fetch("http://localhost:5000/api/users/info", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(characterName),
-          })
-           /*  .then((res) => res.json())
-            .then((res) => {
-              console.log(res);
+          method: "get",
+        })
+            .then(res => {
+                return res.json();
             })
-            .catch((err) => {
-              console.error("기분 나쁜 에러 발생");
-            }); */
+            .then(data => {
+                console.log(data);
+               
+            })
+        
+            /* fetch(`http://localhost:5000/api/char`, {
+                credentials: "include",
+                method: "POST",
+                headers: {
+                    "Content-Type":"application/json",
+                },
+                body: JSON.stringify(characterName),
+            }) */
     }
 
     return <div className="helloUser">
