@@ -6,6 +6,12 @@ const dotenv = require("dotenv");
 const db = require("./config/db");
 const cors = require('cors');
 
+const corsOptions = {
+    origin: '*',
+    credentials: true,
+}
+
+app.use(cors(corsOptions))
 
 dotenv.config({ path: ".env"});
 
@@ -21,15 +27,15 @@ parsing().then(ress => {
     })
 });
 
-app.get("/api/char", (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-    res.send("hi")
+app.get("/api/char/", (req, res) => {
+    /* res.header('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE"); */
+    res.send(JSON.stringify("hi"))
 })
 
 
-
 app.get("/api/db", (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
+    /* res.set('Access-Control-Allow-Origin', '*'); */
     db.query(
         "SELECT * FROM users",
         (err, rows, fields) => {
@@ -38,12 +44,7 @@ app.get("/api/db", (req, res) => {
     )
 })
 
-/* const corsOptions = {
-    origin: 'http://localhost:3000',
-    credentials: true,
-}
 
-app.use(cors(corsOptions)) */
 
 
 
