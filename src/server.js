@@ -21,27 +21,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* 크로울링 api */ 
 
-/* parsing().then(ress => {
-    app.get("/api/users/info", (req, res) => {
-        res.send(ress);
-    })
-}); */
-
-app.post("/api/char", (req, res) => {
+app.post("/api/users/info", (req, res) => {
     const data = req.body;
-    console.log(data);
-    /* return res.json(data); */
-    /* res.send(JSON.stringify(data)) */
-
-    app.get("/api/char", (req, res) => {
-        res.send(data);
-    })
+    /* console.log(data); */
 
     parsing(data.name).then(ress => {
         app.get("/api/users/info", (req, res) => {
             res.send(ress);
         })
     });
+    return { success: true };
 })
 
 

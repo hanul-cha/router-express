@@ -14,26 +14,26 @@ export default function Mane() {
 
     function onSubmit(e){
         e.preventDefault();
-        console.log(JSON.stringify(characterName));
+        /* console.log(characterName); */
 
         
-        fetch(`http://localhost:5000/api/char`, {
+        fetch(`http://localhost:5000/api/users/info`, {
             method: "POST",
             headers: {
                 "Content-Type":"application/json",
             },
             body: JSON.stringify({name : characterName}),
         })
-        .then((res) => {
-            if(res.ok) {
-                
+        .then(res => res.json())
+        .then(res => {
+            if(res.success) {
+                alert("ok");
             }
-            
-            
         })
         .catch((err) => {
-        console.error("로그인 중 에러 발생");
+        console.error("캐릭터 검색중 에러 발생");
         });
+        setText("");
     }
 
     return <div className="helloUser">
@@ -44,5 +44,6 @@ export default function Mane() {
             <input id="maneInput" placeholder="캐릭터 명을 입력하세요" value={characterName} onChange={onChange}/>
             <button id="maneBtn" >검색</button>
         </form>
+        
     </div>
 }
