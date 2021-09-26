@@ -12,22 +12,24 @@ export default function Mane() {
         setText(e.target.value);
     }
 
-    async function onSubmit(e){
+    function onSubmit(e){
         e.preventDefault();
         console.log(JSON.stringify(characterName));
 
         
-        await fetch(`http://localhost:5000/api/char`, {
+        fetch(`http://localhost:5000/api/char`, {
             method: "POST",
             headers: {
                 "Content-Type":"application/json",
             },
-            body: JSON.stringify(characterName),
+            body: JSON.stringify({name : characterName}),
         })
-        .then((res) => res.json())
         .then((res) => {
-        
-            console.log(res)
+            if(res.ok) {
+                
+            }
+            
+            
         })
         .catch((err) => {
         console.error("로그인 중 에러 발생");

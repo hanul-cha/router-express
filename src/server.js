@@ -27,10 +27,14 @@ parsing().then(ress => {
     })
 });
 
-app.get("/api/char/", (req, res) => {
-    /* res.header('Access-Control-Allow-Origin', '*');
-    res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE"); */
-    res.send(JSON.stringify("hi"))
+app.post("/api/char", (req, res) => {
+    const data = req.body;
+    console.log(data);
+    /* return res.json(data); */
+    /* res.send(JSON.stringify(data)) */
+    app.get("/api/char", (req, res) => {
+        res.send(data);
+    })
 })
 
 
