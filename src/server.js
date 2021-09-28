@@ -21,16 +21,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* 크로울링 api */ 
 
-app.post("/api/users/info", (req, res) => {
-    const data = req.body;
+app.post("/api/users/info", async (req, res) => {
+    const data = req.body.name;
     /* console.log(data); */
+    console.log(data)
 
-    parsing(data.name).then(ress => {
+    const info = await parsing(data).then(ress => {
+        /* console.log(ress)
         app.get("/api/users/info", (req, res) => {
             res.send(ress);
-        })
-    });
-    return res.json({ success: true });
+        }) */
+        //서버에 send할 필요까지도 없고 리턴값으로 보내주면됨
+        return ress
+    })
+    
+    /* console.log(info); */
+    return res.json({ success: info });
 })
 
 

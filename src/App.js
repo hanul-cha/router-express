@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Mane from './components/Mane';
 import Login from './components/Login';
 import Register from './components/Register';
+import GameInfo from './components/GameInfo';
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/user/:userName" >
           <Mane />
+        </Route>
+        <Route path="/info/:characterName" >
+          <GameInfo />
         </Route>
         </Switch>
       </div>

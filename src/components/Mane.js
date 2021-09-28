@@ -7,6 +7,13 @@ import { useParams } from "react-router";
 export default function Mane() {
     const { userName } = useParams(); 
     const [characterName, setText] = useState("");
+    const [characterInfo, setInfo] = useState([
+        {
+            name: "",
+            level: "",
+            style: "",
+        }
+    ]);
 
     function onChange(e) {
         setText(e.target.value);
@@ -26,16 +33,20 @@ export default function Mane() {
         })
         .then((res) => res.json())
         .then(res => {
-            if(res.success){
-                console.log(res);
+            if(res.success.length === 0){ //없는 이름이면
+                alert("삭제되었거나 없는 캐릭터이름입니다.")
+            } else { //존재하는 이름이면
+                setInfo(res.success);
             }
+            
         })
-        
         .catch((err) => {
         console.error("캐릭터 검색중 에러 발생");
         });
         setText("");
     }
+
+    
 
     return <div className="helloUser">
         <h2>
@@ -45,6 +56,10 @@ export default function Mane() {
             <input id="maneInput" placeholder="캐릭터 명을 입력하세요" value={characterName} onChange={onChange}/>
             <button id="maneBtn" >검색</button>
         </form>
+
+        <h3>{characterInfo[0].name}</h3>
+        <h3>{characterInfo[0].level}</h3>
+        <h3>{characterInfo[0].style}</h3>
         
     </div>
 }
