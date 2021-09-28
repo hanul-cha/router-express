@@ -24,12 +24,13 @@ export default function Mane() {
             },
             body: JSON.stringify({name : characterName}),
         })
-        .then(res => res.json())
+        .then((res) => res.json())
         .then(res => {
-            if(res.success) {
-                alert("ok");
+            if(res.success){
+                console.log(res);
             }
         })
+        
         .catch((err) => {
         console.error("캐릭터 검색중 에러 발생");
         });

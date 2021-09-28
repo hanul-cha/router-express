@@ -30,7 +30,7 @@ app.post("/api/users/info", (req, res) => {
             res.send(ress);
         })
     });
-    return { success: true };
+    return res.json({ success: true });
 })
 
 
